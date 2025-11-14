@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Play, Pause, Star, BookOpen } from 'lucide-react'
+import { Play, Pause, Star, BookOpen, Heart, Zap, UserCheck, MessageCircle, HandshakeIcon, Award } from 'lucide-react'
 
 interface Story {
   id: string
@@ -18,7 +18,6 @@ interface Story {
   icon: string
   topic: string
   category: string
-  image: string
 }
 
 const stories: Story[] = [
@@ -29,14 +28,13 @@ const stories: Story[] = [
     content_en:
       "A young boy named Ahmed was walking home from school when he found a beautiful leather wallet full of money on the road. He felt excited for a moment, but then he remembered his mother's words about honesty. Despite being poor, Ahmed decided to find the owner. He opened the wallet and found the owner's address. Ahmed walked to the house and knocked on the door. When an elderly man opened the door, Ahmed explained everything. The man was so grateful that he not only praised Ahmed's honesty but also offered him a job at his shop. Ahmed learned that honesty brings more rewards than any amount of money ever could.",
     content_ur:
-      "احمد نام کا ایک لڑکا اسکول سے گھر جاتے ہوئے راستے میں ایک خوبصورت بٹوہ پایا جو رقوم سے بھرا ہوا تھا۔ پہلے تو وہ خوشی ہوا لیکن اس نے اپنی ماں کی ایمانداری کی باتوں کو یاد کیا۔ اپنی غریبی کے باوجود احمد نے مالک کو تلاش کرنے کا فیصلہ کیا۔ اس نے بٹوے میں سے پتہ لگایا اور اس کے گھر گیا۔ جب ایک بزرگ شخص نے دروازہ کھولا تو احمد نے سب کچھ بتایا۔ وہ شخص اتنا شکر گزار تھا کہ اس نے نہ صرف احمد کی تعریف کی بلکہ اسے اپنی دکان پر کام کا موقع دیا۔",
+      "احمد نام کا ایک لڑکا اسکول سے گھر جاتے ہوئے راستے میں ایک خوبصورت بٹوہ پایا جو رقوم سے بھرا ہوا تھا۔ پہلے تو وہ خوشی ہوا لیکن اس نے اپنی ماں کی ایمانداری کی باتوں کو یاد کیا۔ اپنی غریبی کے باوجود احمد نے مالک کو تلاش کرنے کا فیصلہ کیا۔ اس نے بٹوے میں سے پتہ لگایا اور اس کے گھر گیا۔ جب ایک بزرگ شخص نے دروازہ کھولا تو احمد نے سب کچھ بتایا۔ وہ شخص اتنا شکر گزار تھا کہ اس نے نہ صرف احمد کی تعریف کی بلکہ اسے اپنی دکان پر کام کا موقع دیا۔ احمد نے سمجھا کہ ایمانداری ہمیشہ انعام پاتی ہے اور دل کو سکون دیتی ہے۔ سچی دولت ایمانداری سے آتی ہے۔",
     moral_en:
       "Honesty is always rewarded and brings peace to the heart. True wealth comes from integrity, not from money.",
     moral_ur: "ایمانداری ہمیشہ انعام پاتی ہے اور دل کو سکون دیتی ہے۔ سچی دولت ایمانداری سے آتی ہے۔",
     icon: "💼",
     topic: "Honesty",
     category: "Values",
-    image: "honest-boy-finding-wallet-cartoon",
   },
   {
     id: "2",
@@ -52,7 +50,6 @@ const stories: Story[] = [
     icon: "❤️",
     topic: "Kindness",
     category: "Emotions",
-    image: "girl-sharing-lunch-kindness-cartoon",
   },
   {
     id: "3",
@@ -68,7 +65,6 @@ const stories: Story[] = [
     icon: "⏳",
     topic: "Patience",
     category: "Character",
-    image: "boy-practicing-art-patience-cartoon",
   },
   {
     id: "4",
@@ -84,7 +80,6 @@ const stories: Story[] = [
     icon: "🙏",
     topic: "Gratitude",
     category: "Emotions",
-    image: "grateful-child-cartoon",
   },
   {
     id: "5",
@@ -100,7 +95,6 @@ const stories: Story[] = [
     icon: "🤝",
     topic: "Help",
     category: "Relationships",
-    image: "helpful-friend-cartoon",
   },
   {
     id: "6",
@@ -117,7 +111,6 @@ const stories: Story[] = [
     icon: "💪",
     topic: "Courage",
     category: "Character",
-    image: "brave-heart-cartoon",
   },
   {
     id: "7",
@@ -133,7 +126,6 @@ const stories: Story[] = [
     icon: "🕊️",
     topic: "Forgiveness",
     category: "Character",
-    image: "forgiving-child-cartoon",
   },
   {
     id: "8",
@@ -149,7 +141,6 @@ const stories: Story[] = [
     icon: "👑",
     topic: "Humility",
     category: "Character",
-    image: "humble-winner-cartoon",
   },
 ]
 
@@ -263,14 +254,11 @@ export default function StoriesPage() {
                 onClick={() => setSelectedStory(s.id)}
                 className="h-full bg-white border-0 rounded-3xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden group"
               >
-                {/* AI Generated Image */}
-                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
-                  <img
-                    src={`/.jpg?key=fmq0f&height=224&width=400&query=${s.image} children book illustration cartoon style professional`}
-                    alt={s.title_en}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30" />
+                {/* Icon Display */}
+                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                  <div className="text-9xl group-hover:scale-110 transition-transform duration-500">
+                    {s.icon}
+                  </div>
                 </div>
 
                 <CardHeader className="pb-3">
