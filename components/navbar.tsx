@@ -46,7 +46,7 @@ export default function Navbar({ language, setLanguage }: NavbarProps) {
           </div>
           <div>
             <div className="font-bold text-lg sm:text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">
-              KidGPT-Blooming 
+            Blomming kids
               
             </div>
             <div className="text-xs sm:text-xs text-muted-foreground font-medium leading-tight">Learn & Grow</div>
