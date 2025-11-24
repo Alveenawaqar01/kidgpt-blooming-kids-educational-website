@@ -14,7 +14,7 @@ export default function HeroSection({ language }: HeroSectionProps) {
     en: {
       heading: "Learn, Play & Grow with AI",
       subtext:
-        "KidGPT is a safe, interactive platform where kids master English, Urdu, Maths, and Islamic values through engaging games, creative activities, and inspiring stories.",
+        "blomming kids is a safe, interactive platform where kids master English, Urdu, Maths, and Islamic values through engaging games, creative activities, and inspiring stories.",
       cta1: "Explore Games",
       cta2: "Parent Dashboard",
     },
