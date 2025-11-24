@@ -10,7 +10,7 @@ interface FooterProps {
 export default function Footer({ language }: FooterProps) {
   const content = {
     en: {
-      copyright: "© 2025 KidGPT. All rights reserved.",
+      copyright: "© 2025 bloomingkids. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       contact: "Contact",
@@ -42,7 +42,7 @@ export default function Footer({ language }: FooterProps) {
                 <span className="text-white font-bold text-lg">K</span>
               </div>
               <div>
-                <div className="font-bold text-lg text-foreground">KidGPT</div>
+                <div className="font-bold text-lg text-foreground">bloomingkids</div>
                 <div className="text-xs text-foreground/70">Learn & Grow</div>
               </div>
             </div>
