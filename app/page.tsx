@@ -14,7 +14,7 @@ export default function Home() {
 
   const content = {
     en: {
-      welcome: "Welcome to KidGPT",
+      welcome: "Welcome to Blomming kids",
       subtitle: "Learn, Play, and Grow with Fun!",
       description: "A safe AI-powered learning platform designed for kids aged 5-12",
       stats: {
